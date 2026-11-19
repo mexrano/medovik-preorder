@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDOVIK — Предзаказ десертов</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-block">
+            <svg xmlns="http://www.w3.org/2000/svg" width="58" height="54" viewBox="0 0 58 54" fill="none"
+                stroke="var(--dark-chocolate)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M27 3 L39 3 L46 13.5 L39 24 L27 24 L20 13.5 Z" />
+                <path d="M7 16 L19 16 L26 26.5 L19 37 L7 37 L0 26.5 Z" />
+                <path d="M27 29 L39 29 L46 39.5 L39 50 L27 50 L20 39.5 Z" />
+            </svg>
+            <span class="logo-text">MEDOVIK</span>
+        </div>
+
+        <nav class="main-nav">
+            <a href="#menu">Меню</a>
+            <a href="https://www.google.com/maps/dir//Medovik,+Kayaba%C5%9F%C4%B1,+site+i%C3%A7i+Kaya%C5%9Fehir+Merkez+AVM+no+A+AVM+A+blok+d%C3%BCkkan+36,+34494+Ba%C5%9Fak%C5%9Fehir%2F%C4%B0stanbul/@41.1084107,28.7568524,19z/data=!4m16!1m7!3m6!1s0x14cab7f0010baaef:0x98852d86703f5e3!2sMedovik!8m2!3d41.1081825!4d28.7580458!16s%2Fg%2F11ltrx2w9s!4m7!1m0!1m5!1m1!1s0x14cab7f0010baaef:0x98852d86703f5e3!2m2!1d28.7580226!2d41.1081832?entry=ttu&g_ep=EgoyMDI2MTExMC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" rel="noopener noreferrer">На карте</a>
+            <a href="https://wa.me/905011169192" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#order" class="cart-icon-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6.5 8h11l1.5 10a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2z" />
+                    <path d="M9 8V5.5a3 3 0 0 1 6 0V8" />
+                </svg>
+                <span id="cart-badge" class="cart-badge">0</span>
+            </a>
+            <a href="#order" class="btn-dark btn-header">Оформить заказ</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-location">
+                <span class="pin"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pin-icon">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg></span>Каяшехир Меркез Башакшехир
+            </p>
+            <h1 class="hero-title">Тот самый медовик, только теперь онлайн</h1>
+            <p class="hero-subtitle">Выберите любимые десерты здесь — мы бережно упакуем ваш заказ точно к вашему
+                приходу</p>
+
+            <div class="hero-buttons">
+                <a href="#menu" class="btn-dark btn-hero">Посмотреть меню →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="popular-section">
+        <div class="section-header">
+            <h2 class="section-title">Меню на сегодня</h2>
+            <p class="section-subtitle">Позиции, доступные к предзаказу прямо сейчас</p>
+        </div>
+        <div class="filters-container" id="filters">
+            <button class="filter-btn active" data-category="all">Все десерты</button>
+            <button class="filter-btn" data-category="slices">Порционные</button>
+            <button class="filter-btn" data-category="half">Половинки</button>
+            <button class="filter-btn" data-category="whole">Целые торты</button>
+        </div>
+        <div class="cards-grid" id="products-grid"></div>
+    </section>
+
+    <section id="order" class="order-section">
+        <div class="order-container">
+            <div class="cart-column">
+                <h2 class="order-title">Заказ навынос</h2>
+                <p class="order-subtitle">Выберите десерты и укажите время, когда заберете</p>
+                <div class="cart-items-list" id="cart-items"></div>
+                <div class="cart-total">
+                    <span class="total-label">Итого</span>
+                    <span class="total-price" id="cart-total">₺0</span>
+                </div>
+            </div>
+
+            <div class="form-column">
+                <form class="order-form" id="tg-form">
+                    <input type="text" id="customer-name" placeholder="Ваше имя" required class="form-input">
+                    <input type="tel" id="customer-phone" placeholder="+90 5XX XXX XX XX" minlength="10" maxlength="18"
+                        required class="form-input">
+                    <div class="form-row">
+                        <input type="date" id="order-date" required class="form-input">
+                        <input type="time" id="order-time" required class="form-input" min="10:00" max="22:00">
+                    </div>
+                    <button type="submit" class="btn-dark btn-submit">Подтвердить заказ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="#" class="footer-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="39" viewBox="0 0 58 54" fill="none"
+                stroke="var(--dark-chocolate)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M27 3 L39 3 L46 13.5 L39 24 L27 24 L20 13.5 Z" />
+                <path d="M7 16 L19 16 L26 26.5 L19 37 L7 37 L0 26.5 Z" />
+                <path d="M27 29 L39 29 L46 39.5 L39 50 L27 50 L20 39.5 Z" />
+            </svg>
+            <span class="logo-text">MEDOVIK</span>
+        </a>
+
+        <div class="footer-address">
+            <div class="footer-city">Kayaşehir Merkez, Başakşehir · İstanbul</div>
+            <div class="footer-hours">Ежедневно · 10:00 – 22:00</div>
+            <div class="footer-credit">
+                Code & Design by <a href="https://t.me/mexrano" target="_blank" class="credit-link">Alisultanov
+                    Isa</a>
+            </div>
+        </div>
+
+        <div class="footer-social">
+            <div class="footer-line"></div>
+            <a href="https://wa.me/905011169192" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21z"></path>
+                    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1"></path>
+                </svg>
+            </a>
+            <a href="https://instagram.com/medovik.tr" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
