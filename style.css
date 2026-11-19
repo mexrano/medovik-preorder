@@ -917,13 +917,16 @@ body {
     }
 
     .filters-container {
-        gap: 8px;
+        flex-wrap: nowrap;
+        gap: clamp(4px, 1.3vw, 8px);
         margin-bottom: 20px;
     }
 
     .filter-btn {
-        padding: 8px 14px;
-        font-size: 13px;
+        padding: 7px clamp(6px, 1.8vw, 12px);
+        font-size: clamp(10px, 2.5vw, 13px);
+        font-weight: 600;
+        white-space: nowrap;
     }
 
     .cards-grid {
@@ -1055,12 +1058,12 @@ body {
     }
 
     .filters-container {
-        gap: 6px;
+        gap: 5px;
     }
 
     .filter-btn {
-        padding: 7px 11px;
-        font-size: 12px;
+        padding: 6px 9px;
+        font-size: 11px;
     }
 }
 
