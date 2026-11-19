@@ -225,3 +225,11 @@ filtersContainer.addEventListener('click', (event) => {
 });
 
 renderCart();
+const timeInput = document.getElementById('order-time');
+const nextHour = today.getHours() + 1;
+
+if (nextHour < 10 || nextHour >= 22) {
+    timeInput.value = '10:00';
+} else {
+    timeInput.value = `${nextHour}:00`;
+}
